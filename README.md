@@ -20,25 +20,6 @@ A Contact Management System to store and manage personal and business contacts d
 Users can add, update, delete, and search contacts. All data is persisted to files across sessions.
 
 
-##  Project Structure
-
-ContactManagementSystem/
-├── src/
-│   ├── Main.java            # Entry point — login flow and menu loop
-│   ├── User.java            # Login, logout, timestamp-based activity logging
-│   ├── Contact.java         # Contact data model with file serialization
-│   ├── ContactManager.java  # All CRUD operations with file read/write
-│   └── Category.java        # Category grouping saved to file
-├── data/                    # Auto-created when program runs
-│   ├── contacts.txt         # All contact records (CSV format)
-│   ├── log.txt              # Login/logout audit trail with timestamps
-│   └── categories.txt       # Category assignments
-├── docs/
-│   ├── PHASE I OOP
-│   └── PHASE II OOP
-└── README.md
-
-
 ##  How to Run
 
 ### Prerequisites
@@ -61,43 +42,7 @@ java Main
 Username : admin
 Password : admin123
 
-
-## Features
-
-Feature : Description 
-
- Add Contact : Enter all contact details; saved instantly to `contacts.txt` 
- View All Contacts : Reads and displays all records from file in a formatted box 
- Search Contact : Case-insensitive search by name or phone number 
- Edit Contact : Load contact by ID, update any field, overwrite file 
- Delete Contact : Remove contact by ID, overwrite file 
- File Persistence : Data survives between program runs (stored in `contacts.txt`) 
- Activity Logging : Every login/logout timestamped and saved to `log.txt` 
- Category Support : Assign contacts to categories; saved to `categories.txt`
-
-##  File Format
-
-### contacts.txt
-Each line stores one contact in comma-separated format:
-
-### log.txt
-Each line records a timestamped login or logout
-
-## OOP Concepts Used
-
-| Concept | Where Applied |
-
-| **Encapsulation** | All fields `private`; accessed via getters and setters |
-| **Abstraction** | File I/O logic hidden inside `private` helper methods |
-| **Constructors** | Parameterized constructors in all 4 classes |
-| **`this` keyword** | Resolves variable shadowing in constructors |
-| **ArrayList** | Dynamic contact list in `ContactManager` |
-| **Exception Handling** | `try-catch IOException` on all file operations |
-| **File Handling** | `FileWriter`, `BufferedReader`, `FileReader` across multiple classes |
-| **`@Override`** | Custom `toString()` in `Contact` and `User` |
-
-
-## 📄 Class Overview
+## Class Overview
 
 ### User.java
 - Handles login with `validateCredentials()`
@@ -117,10 +62,187 @@ Each line records a timestamped login or logout
 - `createCategory()` — saves category to `categories.txt`
 - `assignCategory(contact)` — appends contact-category mapping to file
 
+##  File Format
 
-## 📚 Documents
+### contacts.txt
+Each line stores one contact in comma-separated format:
 
-| Document | Description |
+### log.txt
+Each line records a timestamped login or logout
 
-| `PHASE I OOP.pdf` | Problem identification, class mapping, attributes & behaviours |
-| `PHASE II OOP.pdf` | Class diagram, use cases, sequence diagrams, code snippets, OOP concepts |
+# Sample Input / Output
+==========================================
+       CONTACT MANAGEMENT SYSTEM         
+==========================================
+Enter Username : admin
+Enter Password : admin123
+
+Login successful! Welcome, admin!
+
+------------------------------------------
+                MAIN MENU                
+------------------------------------------
+1. Add Contact
+2. View All Contacts
+3. Search Contact
+4. Edit Contact
+5. Delete Contact
+6. Logout
+Enter choice: 1
+
+--- ADD CONTACT ---
+Name     : Devananda JA
+Phone    : 9876543210
+Email    : devanandaja@gmail.com
+Address  : Green Valley appartments
+Birthday : 11 November 2006
+Company  : Google
+Contact saved to file successfully!
+Contact added with ID: 1
+
+------------------------------------------
+                MAIN MENU                
+------------------------------------------
+1. Add Contact
+2. View All Contacts
+3. Search Contact
+4. Edit Contact
+5. Delete Contact
+6. Logout
+Enter choice: 2
+
+========== ALL CONTACTS (1) ==========
++------------------------------------------+
+| ID       : 1                              |
+| Name     : Devananda JA                   |
+| Phone    : 9876543210                     |
+| Email    : devanandaja@gmail.com          |
+| Address  : Green Valley appartments       |
+| Birthday : 11 November 2006               |
+| Company  : Google                         |
++------------------------------------------+
+------------------------------------------
+                MAIN MENU                
+------------------------------------------
+1. Add Contact
+2. View All Contacts
+3. Search Contact
+4. Edit Contact
+5. Delete Contact
+6. Logout
+Enter choice: 3
+
+--- SEARCH CONTACT ---
+Enter name or phone: Devananda JA
+
+--- Search Results for: "Devananda JA" ---
++------------------------------------------+
+| ID       : 1                              |
+| Name     : Devananda JA                   |
+| Phone    : 9876543210                     |
+| Email    : devanandaja@gmail.com          |
+| Address  : Green Valley appartments       |
+| Birthday : 11 November 2006               |
+| Company  : Google                         |
++------------------------------------------+
+------------------------------------------
+                MAIN MENU                
+------------------------------------------
+1. Add Contact
+2. View All Contacts
+3. Search Contact
+4. Edit Contact
+5. Delete Contact
+6. Logout
+Enter choice: 9876543210
+Invalid choice. Try again.
+------------------------------------------
+                MAIN MENU                
+------------------------------------------
+1. Add Contact
+2. View All Contacts
+3. Search Contact
+4. Edit Contact
+5. Delete Contact
+6. Logout
+Enter choice: 3
+
+--- SEARCH CONTACT ---
+Enter name or phone: 9876543210
+
+--- Search Results for: "9876543210" ---
++------------------------------------------+
+| ID       : 1                              |
+| Name     : Devananda JA                   |
+| Phone    : 9876543210                     |
+| Email    : devanandaja@gmail.com          |
+| Address  : Green Valley appartments       |
+| Birthday : 11 November 2006               |
+| Company  : Google                         |
++------------------------------------------+
+------------------------------------------
+                MAIN MENU                
+------------------------------------------
+1. Add Contact
+2. View All Contacts
+3. Search Contact
+4. Edit Contact
+5. Delete Contact
+6. Logout
+Enter choice: 4
+
+--- EDIT CONTACT ---
+Enter Contact ID to edit: 1
+Leave blank to keep current value.
+
+Name     [Devananda JA]: 
+Phone    [9876543210]: 
+Email    [devanandaja@gmail.com]: 
+Address  [Green Valley appartments]: 
+Birthday [11 November 2006]: 
+Company  [Google]: Microsoft
+Contact updated in file successfully!
+
+------------------------------------------
+                MAIN MENU                
+------------------------------------------
+1. Add Contact
+2. View All Contacts
+3. Search Contact
+4. Edit Contact
+5. Delete Contact
+6. Logout
+Enter choice: 5
+
+--- DELETE CONTACT ---
+Enter Contact ID to delete: 1
+Deleted: Devananda JA
+Contact removed from file successfully!
+
+------------------------------------------
+                MAIN MENU                
+------------------------------------------
+1. Add Contact
+2. View All Contacts
+3. Search Contact
+4. Edit Contact
+5. Delete Contact
+6. Logout
+Enter choice: 6
+Goodbye, admin! Your session has been logged.
+
+## Tools/Techniques used
+
+| Concept | Where Applied |
+
+| **Encapsulation** | All fields `private`; accessed via getters and setters |
+| **Abstraction** | File I/O logic hidden inside `private` helper methods |
+| **Constructors** | Parameterized constructors in all 4 classes |
+| **`this` keyword** | Resolves variable shadowing in constructors |
+| **ArrayList** | Dynamic contact list in `ContactManager` |
+| **Exception Handling** | `try-catch IOException` on all file operations |
+| **File Handling** | `FileWriter`, `BufferedReader`, `FileReader` across multiple classes |
+| **`@Override`** | Custom `toString()` in `Contact` and `User` |
+
+
+
