@@ -121,6 +121,6 @@ Each line records a timestamped login or logout
 ## 📚 Documents
 
 | Document | Description |
-|---|---|
-| `docs/Phase1_Analysis.docx` | Problem identification, class mapping, attributes & behaviours |
-| `docs/Phase2_Design_Implementation.docx` | Class diagram, use cases, sequence diagrams, code snippets, OOP concepts |
+
+| `PHASE I OOP.pdf` | Problem identification, class mapping, attributes & behaviours |
+| `PHASE II OOP.pdf` | Class diagram, use cases, sequence diagrams, code snippets, OOP concepts |
