@@ -71,19 +71,29 @@ Each line stores one contact in comma-separated format:
 Each line records a timestamped login or logout
 
 # Sample Input / Output
+# Sample Input / Output
 
-       |
+---
 
+## Login
 
+**Input:**
+```
+Enter Username : admin
+Enter Password : admin123
+```
+**Output:**
+```
+==========================================
+       CONTACT MANAGEMENT SYSTEM         
+==========================================
+Login successful! Welcome, admin!
+```
 
+---
 
-Phone    [9876543210]: 
-Email    [devanandaja@gmail.com]: 
-Address  [Green Valley appartments]: 
-Birthday [11 November 2006]: 
-Company  [Google]: Microsoft
-Contact updated in file successfully!
-
+## Main Menu
+```
 ------------------------------------------
                 MAIN MENU                
 ------------------------------------------
@@ -93,24 +103,193 @@ Contact updated in file successfully!
 4. Edit Contact
 5. Delete Contact
 6. Logout
+Enter choice:
+```
+
+---
+
+##  1. Add Contact
+
+**Input:**
+```
+Enter choice: 1
+
+--- ADD CONTACT ---
+Name     : Alien Lakshmi
+Phone    : 9876543210
+Email    : alien@gmail.com
+Address  : Kochi Kerala
+Birthday : 2005-03-15
+Company  : Amrita
+```
+**Output:**
+```
+Contact saved to file successfully!
+Contact added with ID: 1
+```
+
+---
+
+## 2. View All Contacts
+
+**Input:**
+```
+Enter choice: 2
+```
+**Output:**
+```
+========== ALL CONTACTS (3) ==========
++------------------------------------------+
+| ID       : 1                              |
+| Name     : Alien Lakshmi                  |
+| Phone    : 9876543210                     |
+| Email    : alien@gmail.com                |
+| Address  : Kochi Kerala                   |
+| Birthday : 2005-03-15                     |
+| Company  : Amrita                         |
++------------------------------------------+
++------------------------------------------+
+| ID       : 2                              |
+| Name     : Abel Binu Varghese             |
+| Phone    : 9123456789                     |
+| Email    : abel@gmail.com                 |
+| Address  : Trivandrum                     |
+| Birthday : 2004-11-20                     |
+| Company  : Amrita                         |
++------------------------------------------+
++------------------------------------------+
+| ID       : 3                              |
+| Name     : Kasinath V                     |
+| Phone    : 9988776655                     |
+| Email    : kasinath@gmail.com             |
+| Address  : Ernakulum                      |
+| Birthday : 2005-07-08                     |
+| Company  : Amrita                         |
++------------------------------------------+
+```
+
+---
+
+## 3. Search Contact
+
+**Input:**
+```
+Enter choice: 3
+
+--- SEARCH CONTACT ---
+Enter name or phone: Alien
+```
+**Output:**
+```
+--- Search Results for: "Alien" ---
++------------------------------------------+
+| ID       : 1                              |
+| Name     : Alien Lakshmi                  |
+| Phone    : 9876543210                     |
+| Email    : alien@gmail.com                |
+| Address  : Kochi Kerala                   |
+| Birthday : 2005-03-15                     |
+| Company  : Amrita                         |
++------------------------------------------+
+```
+
+---
+
+## 4. Edit Contact
+
+**Input:**
+```
+Enter choice: 4
+
+--- EDIT CONTACT ---
+Enter Contact ID to edit: 2
+Leave blank to keep current value.
+
+Name     [Abel Binu]: Abel Binu Varghese
+Phone    [9123456789]:
+Email    [abel@gmail.com]:
+Address  [Trivandrum]:
+Birthday [2004-11-20]:
+Company  [Amrita]:
+```
+**Output:**
+```
+Contact updated in file successfully!
+```
+
+---
+
+## 5. Delete Contact
+
+**Input:**
+```
 Enter choice: 5
 
 --- DELETE CONTACT ---
-Enter Contact ID to delete: 1
-Deleted: Devananda JA
+Enter Contact ID to delete: 3
+```
+**Output:**
+```
+Deleted: Kasinath V
 Contact removed from file successfully!
+```
 
-------------------------------------------
-                MAIN MENU                
-------------------------------------------
-1. Add Contact
-2. View All Contacts
-3. Search Contact
-4. Edit Contact
-5. Delete Contact
-6. Logout
+---
+
+## 6. Logout
+
+**Input:**
+```
 Enter choice: 6
+```
+**Output:**
+```
 Goodbye, admin! Your session has been logged.
+```
+
+---
+
+## Generated File Contents
+
+### `contacts.txt` (after session)
+```
+1,Alien Lakshmi,9876543210,alien@gmail.com,Kochi Kerala,2005-03-15,Amrita
+2,Abel Binu Varghese,9123456789,abel@gmail.com,Trivandrum,2004-11-20,Amrita
+```
+
+### `log.txt` (after session)
+```
+[03-05-2026 16:36:40] LOGIN  - User 'admin' logged in.
+[03-05-2026 16:36:40] LOGOUT - User 'admin' logged out.
+```
+
+---
+
+## Invalid Login Attempt
+
+**Input:**
+```
+Enter Username : admin
+Enter Password : wrongpass
+```
+**Output:**
+```
+Invalid credentials. Try again.
+```
+
+---
+
+## Search — Not Found
+
+**Input:**
+```
+Enter name or phone: Devananda
+```
+**Output:**
+```
+--- Search Results for: "Devananda" ---
+No contact found matching "Devananda".
+```
 
 ## Tools/Techniques used
 
