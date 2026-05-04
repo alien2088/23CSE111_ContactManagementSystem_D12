@@ -1,4 +1,4 @@
-# 23CSE113_ContactManagementSystem_D12
+# 23CSE111_ContactManagementSystem_D12
 
 Course: 23CSE111 – Object Oriented Programming  
 Program: S2 B.Tech CSE | Amrita School of Computing, Amritapuri  
