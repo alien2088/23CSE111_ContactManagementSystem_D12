@@ -29,8 +29,7 @@ Users can add, update, delete, and search contacts. All data is persisted to fil
 ### Steps
 
 # 1. Clone the repository
-git clone https://github.com/<your-username>/ContactManagementSystem.git
-cd ContactManagementSystem/src
+https://github.com/alien2088/23CSE111_ContactManagementSystem_D12.git/src
 
 # 2. Compile all Java files
 javac *.java
