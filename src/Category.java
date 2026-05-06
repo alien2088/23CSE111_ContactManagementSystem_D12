@@ -31,9 +31,7 @@ public class Category {
             System.out.println("No contacts available.");
         } else {
             for (Contact c : contactsInCategory) {
-                System.out.println(
-                    c.getName() + " - " + c.getPhoneNumber()
-                );
+                System.out.println(c.getName() + " - " + c.getPhoneNumber());
             }
         }
     }
