@@ -19,9 +19,7 @@ public class Category {
     public void assignCategory(Contact contact) {
         contactsInCategory.add(contact);
 
-        System.out.println(
-            contact.getName() + " added to " + categoryName + " category."
-        );
+        System.out.println(contact.getName() + " added to " + categoryName + " category.");
     }
 
     public void displayCategoryContacts() {
