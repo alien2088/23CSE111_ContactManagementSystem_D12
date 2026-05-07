@@ -12,7 +12,7 @@ public class Category {
     }
 
     public void createCategory() {
-        try (FileWriter fw = new FileWriter("categories.txt", true)) {  // append
+        try (FileWriter fw = new FileWriter("categories.txt", true)) { 
             fw.write(categoryId + "," + categoryName + "\n");
             System.out.println("Category '" + categoryName + "' saved to file.");
         } catch (IOException e) {
