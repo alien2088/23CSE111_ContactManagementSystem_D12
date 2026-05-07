@@ -21,7 +21,7 @@ public class Category {
     }
     
     public void assignCategory(Contact contact) {
-        try (FileWriter fw = new FileWriter("categories.txt", true)) {  // append
+        try (FileWriter fw = new FileWriter("categories.txt", true)) {  
             fw.write(categoryId + "," + categoryName + "," + contact.getContactId()
                     + "," + contact.getName() + "\n");
             System.out.println("Contact '" + contact.getName() +
