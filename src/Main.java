@@ -23,8 +23,7 @@ public class Main {
             if (adminUser.login(username, password)) {
                 currentUser = adminUser;
                 System.out.println("\nLogin successful! Welcome, " + username + "!\n");
-            } 
-            else {
+            } else {
                 System.out.println("Invalid credentials. Try again.\n");
             }
         }
@@ -72,6 +71,7 @@ public class Main {
         contactManager.addContact(c);
         System.out.println("Contact added with ID: " + id + "\n");
     }
+
     static void searchContact() {
         System.out.println("\n--- SEARCH CONTACT ---");
         System.out.print("Enter name or phone: ");
