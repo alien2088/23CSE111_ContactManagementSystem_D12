@@ -13,7 +13,7 @@ public class Admin extends User {
     private static final String USERS_FILE = "users.txt";
 
     public Admin(int adminId, String username, String password, String email, String role) {
-        super(adminId, username, password, email);   // calls User's constructor
+        super(adminId, username, password, email);   
         this.adminId = adminId;
         this.role    = role;
     }
