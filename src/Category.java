@@ -1,55 +1,36 @@
-import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Category {
     private int categoryId;
     private String categoryName;
-    private ArrayList<Contact> contactsInCategory;
 
+    // Constructor
     public Category(int categoryId, String categoryName) {
-        this.categoryId = categoryId;
+        this.categoryId   = categoryId;
         this.categoryName = categoryName;
-        this.contactsInCategory = new ArrayList<>();
     }
 
     public void createCategory() {
-        System.out.println("Category created: " + categoryName);
+        try (FileWriter fw = new FileWriter("categories.txt", true)) {  // append
+            fw.write(categoryId + "," + categoryName + "\n");
+            System.out.println("Category '" + categoryName + "' saved to file.");
+        } catch (IOException e) {
+            System.out.println("Error saving category: " + e.getMessage());
+        }
     }
-
-    // Assign a contact to the category (Aggregation)
+    
     public void assignCategory(Contact contact) {
-        contactsInCategory.add(contact);
-
-        System.out.println(contact.getName() + " added to " + categoryName + " category.");
-    }
-
-    public void displayCategoryContacts() {
-        System.out.println("\nCategory: " + categoryName);
-
-        if (contactsInCategory.isEmpty()) {
-            System.out.println("No contacts available.");
-        } else {
-            for (Contact c : contactsInCategory) {
-                System.out.println(c.getName() + " - " + c.getPhoneNumber());
-            }
+        try (FileWriter fw = new FileWriter("categories.txt", true)) {  // append
+            fw.write(categoryId + "," + categoryName + "," + contact.getContactId()
+                    + "," + contact.getName() + "\n");
+            System.out.println("Contact '" + contact.getName() +
+                    "' assigned to category '" + categoryName + "' and saved.");
+        } catch (IOException e) {
+            System.out.println("Error assigning category: " + e.getMessage());
         }
     }
 
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public ArrayList<Contact> getContacts() {
-        return contactsInCategory;
-    }
-
-    @Override
-    public String toString() {
-        return "Category ID: " + categoryId +
-               ", Name: " + categoryName +
-               ", Total Contacts: " + contactsInCategory.size();
-    }
+    public int    getCategoryId()   { return categoryId; }
+    public String getCategoryName() { return categoryName; }
 }
